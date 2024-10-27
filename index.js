@@ -1,6 +1,7 @@
+import "dotenv/config"
 import express from 'express'
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json())
 let newId =1
@@ -30,6 +31,7 @@ app.get("/teas/:id", (req, res)=>{
     }
     res.status(200).send(reqtea)
 })
+
  //update tea
  app.put("/teas/:id", (req, res)=>{
     console.log("updated")
